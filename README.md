@@ -47,7 +47,8 @@ or load ready-to-use fixtures with admin creds - admin / q1w2e3r4 :
 
 7) Run tests:
 
-`$ python ./manage.py test exos_task/tests/ -v2
+```
+$ python ./manage.py test exos_task/tests/ -v2
 
 Creating test database for alias 'default' (':memory:')...
 Operations to perform:
@@ -80,7 +81,7 @@ Ran 3 tests in 0.056s
 
 OK
 Destroying test database for alias 'default' (':memory:')...
-`
+```
 
 8) Start server in debug mode:
 
