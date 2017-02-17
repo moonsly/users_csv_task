@@ -15,9 +15,9 @@ INSTALL
 
 1) Install python2.7
 
-2) Make new virtualenv with python3:
+2) Make new virtualenv with python2.7:
 
-`virtualenv -p python3 ./env/`
+`virtualenv -p python2 ./env/`
 
 3) Clone project to virtualenv:
 
