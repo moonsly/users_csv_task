@@ -1,0 +1,23 @@
+table.user_details {
+    width: 400px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table.user_list{
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    background: #ccc;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+td {
+    padding: 5px;
+    border: 1px solid black;
+}

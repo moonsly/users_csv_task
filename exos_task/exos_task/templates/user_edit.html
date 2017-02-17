@@ -1,0 +1,19 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
+    <title>User edit details</title>
+</head>
+
+<body>
+    <h3>User edit details</h3>
+    <a href="/users">Back to users list</a><br/>
+    {% if saved %} User saved successfully {% endif %}
+    {% if created %} User created successfully {% endif %}
+    <form method="POST" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save"> &nbsp; <a href="/users">Cancel</a>
+    </form>
+
+</body>
+</html>

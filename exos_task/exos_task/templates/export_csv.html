@@ -1,0 +1,3 @@
+{% load extra_tags %}"Username","Birthday","Eligible","Random Number","BizzFuzz"
+{% for user in user_list %}"{{ user.username }}","{{ user.birthday }}","{{ user.birthday | is_allowed }}","{{ user.random_number }}","{{ user.random_number | bizzfuzz }}"
+{% endfor %}

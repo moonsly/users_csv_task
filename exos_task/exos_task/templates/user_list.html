@@ -1,0 +1,53 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
+    <title>Users list</title>
+</head>
+
+<body>
+{% load extra_tags %}
+{% if user_list %}
+    <h3>My users</h3>
+    <a href="/user/add">+ Add new user</a> &nbsp; <a href="?export=csv">Export to CSV</a>
+    {% if request.GET.deleted %} User with ID {{ request.GET.deleted }} was deleted successfully {% endif %}
+    <br/>&nbsp;<br/>
+    <table class="user_list">
+    <thead><th>id</th><th>username</th><th>birthday</th><th>Eligible</th><th>RandomNumber</th><th>BizzFuzz</th><th>Actions</th></thead>
+        {% for user in user_list %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td><a href="/user/{{ user.id }}/" class="see_detail">{{ user.username }}</a></td>
+                <td>{{ user.birthday }}</td>
+                <td>{{ user.birthday | is_allowed }}</td>
+                <td>{{ user.random_number }}</td>
+                <td>{{ user.random_number | bizzfuzz }}</td>
+                <td>
+                    <a href="/user/{{ user.id }}/" class="see_detail">[view]</a>&nbsp;&nbsp;
+                    <a href="/user/edit/{{ user.id }}/" class="see_detail">[edit]</a>&nbsp;&nbsp;
+                    <a href="/user/del/{{ user.id }}/" class="see_detail">[del]</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {#  -- pagination  -- #}
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="/users?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="/users?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+{% else %}
+    <h3>My users</h3>
+    <p>No users found!!! :(</p>
+{% endif %}
+</body>
+</html>

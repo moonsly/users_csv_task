@@ -1,0 +1,19 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
+    <title>User details</title>
+</head>
+
+<body>
+    <h3>User details</h3>
+    <a href="/users">Back to users list</a><br/>
+    <table class="user_details">
+        <thead><th>name</th><th>value</th></thead>
+        <tr><td>username</td><td>{{object.username}}</td></tr>
+        <tr><td>email</td><td>{{object.email}}</td></tr> 
+        <tr><td>birthday</td><td>{{object.birthday}}</td></tr> 
+        <tr><td>random</td><td>{{object.random_number}}</td></tr>  
+    </table>
+
+</body>
+</html>
